@@ -155,6 +155,10 @@
                         </centerItemGroups>
                         <barButtonItem key="rightBarButtonItem" title="VIEW SURVEY RESULTS" id="2uU-3m-fNL"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="headerView" destination="n0m-JL-EDK" id="ZlH-oQ-ocZ"/>
+                        <outlet property="tableView" destination="O5I-k4-Wf8" id="ZAY-DQ-6Fg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
