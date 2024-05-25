@@ -31,7 +31,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var label4: UILabel!
     @IBOutlet var label5: UILabel!
     
+    private var fullName = ""
+    private var foodPreference = ""
+    private var email = ""
+    private var birthDate = Date()
+    private var contactNumber = ""
     private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
+    
+//MARK: - Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
