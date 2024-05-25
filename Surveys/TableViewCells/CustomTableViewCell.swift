@@ -25,14 +25,6 @@ class CustomTableViewCell: UITableViewCell {
         self.disagree.addTarget(self, action: #selector(radioButtonSelection(_:)), for: .touchUpInside)
         self.strongDisagree.addTarget(self, action: #selector(radioButtonSelection(_:)), for: .touchUpInside)
     }
-    
-    func resetCells() {
-        strongAgree.setImage(UIImage(systemName: "circle"), for: .normal)
-        agree.setImage(UIImage(systemName: "circle"), for: .normal)
-        neutral.setImage(UIImage(systemName: "circle"), for: .normal)
-        disagree.setImage(UIImage(systemName: "circle"), for: .normal)
-        strongAgree.setImage(UIImage(systemName: "circle"), for: .normal)
-    }
 
     @objc func radioButtonSelection(_ sender: UIButton) {
         strongAgree.isSelected = false
@@ -40,6 +32,7 @@ class CustomTableViewCell: UITableViewCell {
         neutral.isSelected = false
         disagree.isSelected = false
         strongDisagree.isSelected = false
+        
         strongAgree.setImage(UIImage(systemName: "circle"), for: .normal)
         agree.setImage(UIImage(systemName: "circle"), for: .normal)
         neutral.setImage(UIImage(systemName: "circle"), for: .normal)
