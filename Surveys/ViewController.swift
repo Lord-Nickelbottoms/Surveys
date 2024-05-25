@@ -9,6 +9,18 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+//MARK: - IBOutlets
+    
+    @IBOutlet var fullNameTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var birthDateTextField: UITextField!
+    @IBOutlet var contactTextField: UITextField!
+    
+    @IBOutlet var pizzaCheckbox: UIButton!
+    @IBOutlet var pastaCheckbox: UIButton!
+    @IBOutlet var papAndWorsCheckbox: UIButton!
+    @IBOutlet var otherCheckbox: UIButton!
+    
     @IBOutlet var headerView: UIView!
     @IBOutlet var tableView: UITableView!
     
