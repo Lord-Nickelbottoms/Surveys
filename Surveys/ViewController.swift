@@ -18,9 +18,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var label3: UILabel!
     @IBOutlet var label4: UILabel!
     @IBOutlet var label5: UILabel!
+    
+    private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         label1.layer.borderWidth = 1.0
         label2.layer.borderWidth = 1.0
         label3.layer.borderWidth = 1.0
@@ -34,10 +37,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //MARK: - TableView functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return surveyQuestions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else{return UITableViewCell()}
+        
+        cell.setupCell(surveyQuestions[indexPath.row])
+        
+        return cell
     }
 }
