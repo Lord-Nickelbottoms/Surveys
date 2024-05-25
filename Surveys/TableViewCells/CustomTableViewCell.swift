@@ -27,11 +27,11 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     func resetCells() {
-        strongAgree.setImage(UIImage(systemName: "circle"), for: .selected)
-        agree.setImage(UIImage(systemName: "circle"), for: .selected)
-        neutral.setImage(UIImage(systemName: "circle"), for: .selected)
-        disagree.setImage(UIImage(systemName: "circle"), for: .selected)
-        strongAgree.setImage(UIImage(systemName: "circle"), for: .selected)
+        strongAgree.setImage(UIImage(systemName: "circle"), for: .normal)
+        agree.setImage(UIImage(systemName: "circle"), for: .normal)
+        neutral.setImage(UIImage(systemName: "circle"), for: .normal)
+        disagree.setImage(UIImage(systemName: "circle"), for: .normal)
+        strongAgree.setImage(UIImage(systemName: "circle"), for: .normal)
     }
 
     @objc func radioButtonSelection(_ sender: UIButton) {
@@ -40,14 +40,17 @@ class CustomTableViewCell: UITableViewCell {
         neutral.isSelected = false
         disagree.isSelected = false
         strongDisagree.isSelected = false
+        strongAgree.setImage(UIImage(systemName: "circle"), for: .normal)
+        agree.setImage(UIImage(systemName: "circle"), for: .normal)
+        neutral.setImage(UIImage(systemName: "circle"), for: .normal)
+        disagree.setImage(UIImage(systemName: "circle"), for: .normal)
+        strongAgree.setImage(UIImage(systemName: "circle"), for: .normal)
         
         
         sender.isSelected = true
         
         if sender.isSelected == true {
             sender.setImage(UIImage(systemName: "circle.fill"), for: .selected)
-        } else {
-            sender.setImage(UIImage(systemName: "circle"), for: .selected)
         }
     }
 }
