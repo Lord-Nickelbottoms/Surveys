@@ -52,8 +52,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+//MARK: - IBActions
+    
+    @IBAction func submitData(_ sender: UIButton) {
+        if fullNameTextField.text == "", emailTextField.text == "", contactTextField.text == "" {
+            let alert = UIAlertController(title: "Error!", message: "Personal details cannot be empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true)
+        } else {
+            fullName = fullNameTextField.text ?? ""
+            email = emailTextField.text ?? ""
+            contactNumber = contactTextField.text ?? ""
+        }
+    }
 
-//MARK: - TableView functions
+//MARK: - TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return surveyQuestions.count
