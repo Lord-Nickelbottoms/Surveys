@@ -250,6 +250,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="SUBMIT"/>
+                                <connections>
+                                    <action selector="submitData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g0G-S1-RTj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T8-Re-mqs">
                                 <rect key="frame" x="1055" y="263" width="75" height="35"/>
@@ -275,13 +278,21 @@
                         <barButtonItem key="rightBarButtonItem" title="VIEW SURVEY RESULTS" id="2uU-3m-fNL"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="birthDateTextField" destination="ujW-fh-nft" id="f1a-Kv-Dn6"/>
+                        <outlet property="contactTextField" destination="oq4-x8-P4k" id="vvy-5E-cf8"/>
+                        <outlet property="emailTextField" destination="jPx-Pe-aY0" id="jp7-dX-NKu"/>
                         <outlet property="emptyLabel" destination="qsD-cp-E9R" id="vUC-yG-eBc"/>
+                        <outlet property="fullNameTextField" destination="Lzw-9f-NOk" id="hqG-d9-8Pm"/>
                         <outlet property="headerView" destination="n0m-JL-EDK" id="ZlH-oQ-ocZ"/>
                         <outlet property="label1" destination="DT9-wD-WZD" id="KX8-ax-nNF"/>
                         <outlet property="label2" destination="GLq-y4-BDh" id="zc1-Pm-pvG"/>
                         <outlet property="label3" destination="MZJ-ta-9cI" id="2UV-4g-BGv"/>
                         <outlet property="label4" destination="K4z-5o-9Ln" id="8nd-jP-vR8"/>
                         <outlet property="label5" destination="RME-dT-Var" id="EUk-Y3-hm9"/>
+                        <outlet property="otherCheckbox" destination="4aB-TZ-CnX" id="Pf4-1E-Ykf"/>
+                        <outlet property="papAndWorsCheckbox" destination="dVs-rV-IvC" id="oWq-VU-EAp"/>
+                        <outlet property="pastaCheckbox" destination="e2l-60-VRj" id="W6l-Ou-jKL"/>
+                        <outlet property="pizzaCheckbox" destination="WJa-cA-hxJ" id="UmT-RY-TiB"/>
                         <outlet property="tableView" destination="O5I-k4-Wf8" id="ZAY-DQ-6Fg"/>
                     </connections>
                 </viewController>
