@@ -51,6 +51,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        pizzaCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
+        pastaCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
+        papAndWorsCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
+        otherCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
     }
     
     private func formatDate(dateToFormat textField: UITextField) -> Date? {
@@ -58,6 +63,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
         return dateFormatter.date(from: textField.text ?? "")
+    }
+    
+    @objc func checkboxSelection(_ sender: UIButton) {
+        pizzaCheckbox.isSelected = false
+        pastaCheckbox.isSelected = false
+        papAndWorsCheckbox.isSelected = false
+        otherCheckbox.isSelected = false
+        
+        pizzaCheckbox.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        pastaCheckbox.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        papAndWorsCheckbox.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        otherCheckbox.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        
+        sender.isSelected = true
+        
+        if sender.isSelected == true {
+            sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
+        }
     }
     
 //MARK: - IBActions
