@@ -71,6 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             fullName = fullNameTextField.text ?? ""
             email = emailTextField.text ?? ""
             contactNumber = contactTextField.text ?? ""
+            birthDate = formatDate(dateToFormat: birthDateTextField) ?? Date()
         }
     }
 
