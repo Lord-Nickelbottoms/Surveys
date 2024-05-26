@@ -53,11 +53,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
     }
     
-    private func formatDate(dateToFormat date: UITextField) -> Date? {
+    private func formatDate(dateToFormat textField: UITextField) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
-        return dateFormatter.date(from: birthDateTextField.text ?? "")
+        return dateFormatter.date(from: textField.text ?? "")
     }
     
 //MARK: - IBActions
