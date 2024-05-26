@@ -34,6 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private var fullName = ""
     private var foodPreference = ""
     private var email = ""
+    private var birthDate = Date()
     private var contactNumber = ""
     private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
     
