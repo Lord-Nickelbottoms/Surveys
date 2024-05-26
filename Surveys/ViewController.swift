@@ -80,6 +80,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if sender.isSelected == true {
             sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
+            
+            switch sender {
+                case pizzaCheckbox:
+                    foodPreference = "Pizza"
+                    
+                case pastaCheckbox:
+                    foodPreference = "Pasta"
+                    
+                case papAndWorsCheckbox:
+                    foodPreference = "Pap and Wors"
+                    
+                default:
+                    foodPreference = "Other"
+            }
         }
     }
     
