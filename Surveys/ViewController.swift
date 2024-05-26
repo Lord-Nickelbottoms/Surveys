@@ -34,7 +34,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private var fullName = ""
     private var foodPreference = ""
     private var email = ""
-    private var birthDate = Date()
     private var contactNumber = ""
     private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
     
@@ -51,6 +50,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    private func formatDate(dateToFormat date: UITextField) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        return dateFormatter.date(from: birthDateTextField.text ?? "")
     }
     
 //MARK: - IBActions
