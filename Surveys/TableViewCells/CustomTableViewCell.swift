@@ -1,9 +1,9 @@
-//
-//  MoviesTableViewCell.swift
-//  Surveys
-//
-//  Created by Nizaam Haffejee on 2024/05/24.
-//
+    //
+    //  CustomTableViewCell.swift
+    //  Surveys
+    //
+    //  Created by Nizaam Haffejee on 2024/05/24.
+    //
 
 import UIKit
 
