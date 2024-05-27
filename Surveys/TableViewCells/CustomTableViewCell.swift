@@ -15,17 +15,19 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet var neutral: UIButton!
     @IBOutlet var disagree: UIButton!
     @IBOutlet var strongDisagree: UIButton!
-
+    
+    var surveyData: (([String: String]) -> Void)?
+    var dictionary = [String: String]()
+    
     func setupCell(_ surveyText: String) {
         self.surveyText.text = surveyText
-        
         self.strongAgree.addTarget(self, action: #selector(radioButtonSelection(_:)), for: .touchUpInside)
         self.agree.addTarget(self, action: #selector(radioButtonSelection(_:)), for: .touchUpInside)
         self.neutral.addTarget(self, action: #selector(radioButtonSelection(_:)), for: .touchUpInside)
         self.disagree.addTarget(self, action: #selector(radioButtonSelection(_:)), for: .touchUpInside)
         self.strongDisagree.addTarget(self, action: #selector(radioButtonSelection(_:)), for: .touchUpInside)
     }
-
+    
     @objc func radioButtonSelection(_ sender: UIButton) {
         strongAgree.isSelected = false
         agree.isSelected = false
@@ -44,6 +46,30 @@ class CustomTableViewCell: UITableViewCell {
         
         if sender.isSelected == true {
             sender.setImage(UIImage(systemName: "circle.fill"), for: .selected)
+            
+                switch sender {
+                    case strongAgree:
+                        dictionary[surveyText.text ?? ""] = "Strong Agree"
+                        
+                    case agree:
+                            dictionary[surveyText.text ?? ""] = "Agree"
+                        
+                    case neutral:
+                            dictionary[surveyText.text ?? ""] = "Neutral"
+                        
+                    case disagree:
+                            dictionary[surveyText.text ?? ""] = "Disagree"
+                        
+                    case strongDisagree:
+                            dictionary[surveyText.text ?? ""] = "Strong Disagree"
+                        
+                    default:
+                        break
+                }
+            
+            if surveyData != nil {
+                surveyData?(dictionary)
+            }
         }
     }
 }
