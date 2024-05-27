@@ -114,8 +114,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             email = emailTextField.text ?? ""
             contactNumber = contactTextField.text ?? ""
             birthDate = formatDate(dateToFormat: birthDateTextField) ?? Date()
-            
-            print(dictionary)
         }
     }
 
@@ -135,12 +133,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             for (key, value) in data {
                 self?.dictionary[key] = value
             }
-//            self?.dictionary = data
-//            
-//            self?.questions = Array(data.keys)
-//            self?.answers = Array(data.values)
         }
-        print(dictionary)
         return cell
     }
 }
