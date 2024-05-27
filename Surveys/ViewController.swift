@@ -63,11 +63,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         otherCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
     }
     
-    
-    @IBAction func dateSelected(_ sender: UIDatePicker) {
-        birthDate = sender.date
-    }
-    
     private func formatDate(dateToFormat date: Date) -> Date {
         let calender = Calendar.current
         var components = calender.dateComponents([.year, .month, .day], from: date)
@@ -121,6 +116,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             contactNumber = contactTextField.text ?? ""
             birthDate = formatDate(dateToFormat: birthDatePicker.date)
         }
+    }
+    
+    @IBAction func dateSelected(_ sender: UIDatePicker) {
+        birthDate = sender.date
     }
 
 //MARK: - TableView
