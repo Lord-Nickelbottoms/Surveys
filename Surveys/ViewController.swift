@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var fullNameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var birthDateTextField: UITextField!
+    @IBOutlet var birthDatePicker: UIDatePicker!
     @IBOutlet var contactTextField: UITextField!
     
     @IBOutlet var pizzaCheckbox: UIButton!
@@ -63,11 +63,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         otherCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
     }
     
-    private func formatDate(dateToFormat textField: UITextField) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+    
+    @IBAction func dateSelected(_ sender: UIDatePicker) {
+        birthDate = sender.date
+        print("Selection: \(birthDate)")
+    }
+    
+    private func formatDate(dateToFormat date: Date) -> Date {
+        let calender = Calendar.current
+        var components = calender.dateComponents([.year, .month, .day], from: date)
+        components.day! += 1
         
-        return dateFormatter.date(from: textField.text ?? "")
+        return calender.date(from: components)!
     }
     
     @objc func checkboxSelection(_ sender: UIButton) {
@@ -105,7 +112,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //MARK: - IBActions
     
     @IBAction func submitData(_ sender: UIButton) {
-        if fullNameTextField.text == "", emailTextField.text == "", contactTextField.text == "" {
+        if fullNameTextField.text == "", emailTextField.text == "", contactTextField.text == "", dictionary.values.contains(where: { $0 == "" }) {
             let alert = UIAlertController(title: "Error!", message: "Personal details cannot be empty.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true)
@@ -113,7 +120,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             fullName = fullNameTextField.text ?? ""
             email = emailTextField.text ?? ""
             contactNumber = contactTextField.text ?? ""
-            birthDate = formatDate(dateToFormat: birthDateTextField) ?? Date()
+            birthDate = formatDate(dateToFormat: birthDatePicker.date)
         }
     }
 
@@ -127,8 +134,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else{return UITableViewCell()}
         cell.setupCell(surveyQuestions[indexPath.row])
         cell.surveyData = {[weak self] data in
-            
-            print("\(indexPath.row): \(data)")
             
             for (key, value) in data {
                 self?.dictionary[key] = value
