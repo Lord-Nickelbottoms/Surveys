@@ -15,6 +15,8 @@
 		706EDF7D2BFF7F9A005294BD /* Surveys.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 706EDF7B2BFF7F9A005294BD /* Surveys.xcdatamodeld */; };
 		706EDF7F2BFF7F9D005294BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 706EDF7E2BFF7F9D005294BD /* Assets.xcassets */; };
 		706EDF822BFF7F9D005294BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 706EDF812BFF7F9D005294BD /* Base */; };
+		70C7D8082C050D5A00E47A68 /* Survey+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7D8062C050D5A00E47A68 /* Survey+CoreDataClass.swift */; };
+		70C7D8092C050D5A00E47A68 /* Survey+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7D8072C050D5A00E47A68 /* Survey+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		706EDF7E2BFF7F9D005294BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		706EDF812BFF7F9D005294BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		706EDF832BFF7F9D005294BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70C7D8062C050D5A00E47A68 /* Survey+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+CoreDataClass.swift"; sourceTree = "<group>"; };
+		70C7D8072C050D5A00E47A68 /* Survey+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		706EDF712BFF7F9A005294BD /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				70C7D80A2C050D8A00E47A68 /* CoreData Entities */,
 				706EDF722BFF7F9A005294BD /* AppDelegate.swift */,
 				706EDF742BFF7F9A005294BD /* SceneDelegate.swift */,
 				706EDF762BFF7F9A005294BD /* ViewController.swift */,
@@ -79,6 +84,15 @@
 				706EDF7B2BFF7F9A005294BD /* Surveys.xcdatamodeld */,
 			);
 			path = Surveys;
+			sourceTree = "<group>";
+		};
+		70C7D80A2C050D8A00E47A68 /* CoreData Entities */ = {
+			isa = PBXGroup;
+			children = (
+				70C7D8062C050D5A00E47A68 /* Survey+CoreDataClass.swift */,
+				70C7D8072C050D5A00E47A68 /* Survey+CoreDataProperties.swift */,
+			);
+			path = "CoreData Entities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +166,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70C7D8082C050D5A00E47A68 /* Survey+CoreDataClass.swift in Sources */,
+				70C7D8092C050D5A00E47A68 /* Survey+CoreDataProperties.swift in Sources */,
 				706EDF772BFF7F9A005294BD /* ViewController.swift in Sources */,
 				706EDF7D2BFF7F9A005294BD /* Surveys.xcdatamodeld in Sources */,
 				70010D1B2C00C927007A4A45 /* CustomTableViewCell.swift in Sources */,
