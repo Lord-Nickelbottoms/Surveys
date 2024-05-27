@@ -38,6 +38,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private var contactNumber = ""
     private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
     
+    var dictionary = ["I like to watch movies" : "", "I like to listen to radio" : "", "I like to eat out" : "", "I like to watch TV" : ""]
+    
+    var questions = [String]()
+    var answers = [String]()
+    
 //MARK: - Functions
 
     override func viewDidLoad() {
@@ -109,6 +114,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             email = emailTextField.text ?? ""
             contactNumber = contactTextField.text ?? ""
             birthDate = formatDate(dateToFormat: birthDateTextField) ?? Date()
+            
+            print(dictionary)
         }
     }
 
@@ -119,11 +126,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else{return UITableViewCell()}
-        
         cell.setupCell(surveyQuestions[indexPath.row])
-        
+        cell.surveyData = {[weak self] data in
+            
+            print("\(indexPath.row): \(data)")
+            
+            for (key, value) in data {
+                self?.dictionary[key] = value
+            }
+//            self?.dictionary = data
+//            
+//            self?.questions = Array(data.keys)
+//            self?.answers = Array(data.values)
+        }
+        print(dictionary)
         return cell
     }
 }
