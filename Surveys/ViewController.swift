@@ -66,7 +66,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func dateSelected(_ sender: UIDatePicker) {
         birthDate = sender.date
-        print("Selection: \(birthDate)")
     }
     
     private func formatDate(dateToFormat date: Date) -> Date {
