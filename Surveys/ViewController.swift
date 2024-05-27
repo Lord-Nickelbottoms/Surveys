@@ -31,6 +31,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var label4: UILabel!
     @IBOutlet var label5: UILabel!
     
+//MARK: - Variables
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     private var fullName = ""
     private var foodPreference = ""
     private var email = ""
@@ -61,6 +65,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         pastaCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
         papAndWorsCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
         otherCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
+    }
+    
+    func createUserSurvey(name: String, email: String, dateOfBirth: Date, contactNumber: String, foodPreference: String, likesMovies: String, likesRadio: String, likesEatOut: String, likesTelevision: String) {
+        let newSurveyItem = Survey(context: context)
+        
+        newSurveyItem.fullName = name
+        newSurveyItem.email = email
+        newSurveyItem.birthDate = dateOfBirth
+        newSurveyItem.contactNumber = contactNumber
+        newSurveyItem.foodPreference = foodPreference
+        newSurveyItem.watchMovies = likesMovies
+        newSurveyItem.listenRadio = likesRadio
+        newSurveyItem.eatOut = likesEatOut
+        newSurveyItem.watchTelevision = likesTelevision
     }
     
     private func formatDate(dateToFormat date: Date) -> Date {
