@@ -259,7 +259,7 @@
                                 </date>
                                 <locale key="locale" localeIdentifier="en_ZA"/>
                                 <connections>
-                                    <action selector="dateSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="2b2-sn-zdt"/>
+                                    <action selector="dateSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="qY7-Kh-HU2"/>
                                 </connections>
                             </datePicker>
                         </subviews>

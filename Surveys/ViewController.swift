@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -31,6 +32,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var label4: UILabel!
     @IBOutlet var label5: UILabel!
     
+//MARK: - Variables
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     private var fullName = ""
     private var foodPreference = ""
     private var email = ""
@@ -38,10 +43,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private var contactNumber = ""
     private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
     
-    var dictionary = ["I like to watch movies" : "", "I like to listen to radio" : "", "I like to eat out" : "", "I like to watch TV" : ""]
+    var dictionary = ["Movies" : "", "Radio" : "", "Eat out" : "", "TV" : ""]
     
-    var questions = [String]()
-    var answers = [String]()
+    private var models = [Survey]()
     
 //MARK: - Functions
 
@@ -61,12 +65,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         pastaCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
         papAndWorsCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
         otherCheckbox.addTarget(self, action: #selector(checkboxSelection(_:)), for: .touchUpInside)
+        
+        getAllData()
     }
     
+//MARK: - CoreData Functions
     
-    @IBAction func dateSelected(_ sender: UIDatePicker) {
-        birthDate = sender.date
-        print("Selection: \(birthDate)")
+    func getAllData() {
+        do {
+            models = try context.fetch(Survey.fetchRequest())
+        } catch {
+            fatalError("Error fetching database")
+        }
+    }
+    
+    func createUserSurvey(name: String, email: String, dateOfBirth: Date, contactNumber: String, foodPreference: String, likesMovies: String, likesRadio: String, likesEatOut: String, likesTelevision: String) {
+        let newSurveyItem = Survey(context: context)
+        
+        newSurveyItem.fullName = name
+        newSurveyItem.email = email
+        newSurveyItem.birthDate = dateOfBirth
+        newSurveyItem.contactNumber = contactNumber
+        newSurveyItem.foodPreference = foodPreference
+        newSurveyItem.watchMovies = likesMovies
+        newSurveyItem.listenRadio = likesRadio
+        newSurveyItem.eatOut = likesEatOut
+        newSurveyItem.watchTelevision = likesTelevision
+        
+        do {
+            try context.save()
+            getAllData()
+        } catch let error {
+            let alert = UIAlertController(title: "Save Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+            self.present(alert, animated: true)
+        }
     }
     
     private func formatDate(dateToFormat date: Date) -> Date {
@@ -121,7 +154,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             email = emailTextField.text ?? ""
             contactNumber = contactTextField.text ?? ""
             birthDate = formatDate(dateToFormat: birthDatePicker.date)
+            
+            createUserSurvey(name: fullName, email: email, dateOfBirth: birthDate, contactNumber: contactNumber, foodPreference: foodPreference, likesMovies: dictionary["Movies"] ?? "", likesRadio: dictionary["Radio"] ?? "", likesEatOut: dictionary["Eat out"] ?? "", likesTelevision: dictionary["TV"] ?? "")
+            
+            let alert = UIAlertController(title: "Success", message: "Information has been saved", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cool", style: .default))
+            self.present(alert, animated: true)
         }
+    }
+    
+    @IBAction func dateSelected(_ sender: UIDatePicker) {
+        birthDate = sender.date
     }
 
 //MARK: - TableView
@@ -131,10 +174,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else{return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else{ return UITableViewCell() }
         cell.setupCell(surveyQuestions[indexPath.row])
+        
         cell.surveyData = {[weak self] data in
-            
             for (key, value) in data {
                 self?.dictionary[key] = value
             }
