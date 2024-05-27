@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SurveyViewController.swift
 //  Surveys
 //
 //  Created by Nizaam Haffejee on 2024/05/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 //MARK: - IBOutlets
     

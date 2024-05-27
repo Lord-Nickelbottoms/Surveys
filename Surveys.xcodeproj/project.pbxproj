@@ -10,7 +10,7 @@
 		70010D1B2C00C927007A4A45 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70010D1A2C00C927007A4A45 /* CustomTableViewCell.swift */; };
 		706EDF732BFF7F9A005294BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706EDF722BFF7F9A005294BD /* AppDelegate.swift */; };
 		706EDF752BFF7F9A005294BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706EDF742BFF7F9A005294BD /* SceneDelegate.swift */; };
-		706EDF772BFF7F9A005294BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706EDF762BFF7F9A005294BD /* ViewController.swift */; };
+		706EDF772BFF7F9A005294BD /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706EDF762BFF7F9A005294BD /* SurveyViewController.swift */; };
 		706EDF7A2BFF7F9A005294BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 706EDF792BFF7F9A005294BD /* Base */; };
 		706EDF7D2BFF7F9A005294BD /* Surveys.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 706EDF7B2BFF7F9A005294BD /* Surveys.xcdatamodeld */; };
 		706EDF7F2BFF7F9D005294BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 706EDF7E2BFF7F9D005294BD /* Assets.xcassets */; };
@@ -24,7 +24,7 @@
 		706EDF6F2BFF7F9A005294BD /* Surveys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Surveys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		706EDF722BFF7F9A005294BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		706EDF742BFF7F9A005294BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		706EDF762BFF7F9A005294BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		706EDF762BFF7F9A005294BD /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		706EDF792BFF7F9A005294BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		706EDF7C2BFF7F9A005294BD /* Surveys.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Surveys.xcdatamodel; sourceTree = "<group>"; };
 		706EDF7E2BFF7F9D005294BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 				70C7D80A2C050D8A00E47A68 /* CoreData Entities */,
 				706EDF722BFF7F9A005294BD /* AppDelegate.swift */,
 				706EDF742BFF7F9A005294BD /* SceneDelegate.swift */,
-				706EDF762BFF7F9A005294BD /* ViewController.swift */,
+				706EDF762BFF7F9A005294BD /* SurveyViewController.swift */,
 				70010D1E2C00CACD007A4A45 /* TableViewCells */,
 				706EDF782BFF7F9A005294BD /* Main.storyboard */,
 				706EDF7E2BFF7F9D005294BD /* Assets.xcassets */,
@@ -168,7 +168,7 @@
 			files = (
 				70C7D8082C050D5A00E47A68 /* Survey+CoreDataClass.swift in Sources */,
 				70C7D8092C050D5A00E47A68 /* Survey+CoreDataProperties.swift in Sources */,
-				706EDF772BFF7F9A005294BD /* ViewController.swift in Sources */,
+				706EDF772BFF7F9A005294BD /* SurveyViewController.swift in Sources */,
 				706EDF7D2BFF7F9A005294BD /* Surveys.xcdatamodeld in Sources */,
 				70010D1B2C00C927007A4A45 /* CustomTableViewCell.swift in Sources */,
 				706EDF732BFF7F9A005294BD /* AppDelegate.swift in Sources */,
