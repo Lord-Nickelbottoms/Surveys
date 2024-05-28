@@ -37,13 +37,16 @@ class SurveyResultsViewController: UIViewController {
     private func updateUI() {
         DispatchQueue.main.async { [self] in
             numberOfSurveys.text = totalAmountOfSurveys
-            averageAgeLabel.text = "\(calculateAverageAge()) years old."
+            averageAgeLabel.text = "\(String(format: "%.1f", calculateAverageAge())) years old."
             oldestPerson.text = "\(calculateOldestAge()) years old."
             youngestPerson.text = "\(calculateYoungestAge()) years old."
             
             likesPizza.text = "%\(pizzaPercentage())"
             likesPasta.text = "%\(pastaPercentage())"
             likesPapAndWors.text = "%\(papAndWorsPercentage())"
+            
+            likesMovies.text = "Avg: \(String(format: "%.1f", movieLikeAverage())) (\(movieLikePercentage)%)"
+            likesRadio.text = "Avg: \(String(format: "%.1f", radioLikeAverage())) (\(radioLikePercentage)%)"
         }
     }
     
@@ -123,12 +126,12 @@ class SurveyResultsViewController: UIViewController {
         return ages
     }
     
-    private func calculateAverageAge() -> String {
+    private func calculateAverageAge() -> Double {
         let birthDates = fetchBirthDates()
         let ages = calculateAges(dates: birthDates)
         let average = ageAverage(ages: ages)
         
-        return String(average)
+        return average
     }
     
 //MARK: - Food Preferences
@@ -170,5 +173,53 @@ class SurveyResultsViewController: UIViewController {
         
         let percentage = (Double(papAndWorsLikeAmount) / Double(surveyItems.count)) * 100
         return String(format: "%.1f", percentage)
+    }
+    
+//MARK: - Ratings
+    
+    private func movieLikeAverage() -> Double {
+        var rating = 0
+        var amountOfRatings = 0
+        var strongAgree = 0
+        var agree = 0
+        
+        for item in surveyItems {
+            amountOfRatings = item.watchMovies?.count ?? 0
+            if item.watchMovies == "Strong Agree"  {
+                strongAgree += 1
+            } else if item.watchMovies == "Agree" {
+                agree += 2
+            }
+        }
+        
+        rating = strongAgree + agree
+        return Double(rating) / Double(amountOfRatings)
+    }
+    
+    private var movieLikePercentage: String {
+        return String(format: "%.1f", movieLikeAverage() * 100)
+    }
+    
+    private func radioLikeAverage() -> Double {
+        var rating = 0
+        var amountOfRatings = 0
+        var strongAgree = 0
+        var agree = 0
+        
+        for item in surveyItems {
+            amountOfRatings = item.listenRadio?.count ?? 0
+            if item.listenRadio == "Strong Agree"  {
+                strongAgree += 1
+            } else if item.listenRadio == "Agree" {
+                agree += 2
+            }
+        }
+        
+        rating = strongAgree + agree
+        return Double(rating) / Double(amountOfRatings)
+    }
+    
+    private var radioLikePercentage: String {
+        return String(format: "%.1f", radioLikeAverage() * 100)
     }
 }
