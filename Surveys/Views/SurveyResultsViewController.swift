@@ -246,4 +246,27 @@ class SurveyResultsViewController: UIViewController {
     private var eatOutLikePercentage: String {
         return String(format: "%.1f", eatOutLikeAverage() * 100)
     }
+    
+    private func televisionLikeAverage() -> Double {
+        var rating = 0
+        var amountOfRatings = 0
+        var strongAgree = 0
+        var agree = 0
+        
+        for item in surveyItems {
+            amountOfRatings = item.watchTelevision?.count ?? 0
+            if item.watchTelevision == "Strong Agree"  {
+                strongAgree += 1
+            } else if item.watchTelevision == "Agree" {
+                agree += 2
+            }
+        }
+        
+        rating = strongAgree + agree
+        return Double(rating) / Double(amountOfRatings)
+    }
+    
+    private var televisionLikePercentage: String {
+        return String(format: "%.1f", televisionLikeAverage() * 100)
+    }
 }
