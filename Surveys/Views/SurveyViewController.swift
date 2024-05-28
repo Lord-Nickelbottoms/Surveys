@@ -43,8 +43,11 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private var contactNumber = ""
     private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
     
-    var dictionary = ["Movies" : "", "Radio" : "", "Eat out" : "", "TV" : ""]
-    
+    private var dictionary = ["Movies" : "", "Radio" : "", "Eat out" : "", "TV" : ""]
+    var movie = ""
+    var radio = ""
+    var eat = ""
+    var television = ""
     private var models = [Survey]()
     
 //MARK: - Functions
