@@ -37,6 +37,7 @@ class SurveyResultsViewController: UIViewController {
             numberOfSurveys.text = totalAmountOfSurveys
             averageAgeLabel.text = "\(calculateAverageAge()) years old."
             oldestPerson.text = "\(calculateOldestAge()) years old."
+            youngestPerson.text = "\(calculateYoungestAge()) years old."
         }
     }
     
@@ -85,7 +86,17 @@ class SurveyResultsViewController: UIViewController {
         return oldestAge
     }
     
-    // Age calculations
+    private func youngestAge(ages: [Int]) -> Int {
+        return ages.min() ?? 0
+    }
+    
+    private func calculateYoungestAge() -> Int {
+        let birthDates = fetchBirthDates()
+        let ages = calculateAges(dates: birthDates)
+        let youngestAge = youngestAge(ages: ages)
+        return youngestAge
+    }
+    
     private func ageAverage(ages: [Int]) -> Double {
         guard !ages.isEmpty else { return 0.0 }
         
