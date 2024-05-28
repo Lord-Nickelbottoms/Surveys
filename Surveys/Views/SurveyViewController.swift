@@ -169,6 +169,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func viewResultsTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "toResults", sender: self)
     }
     
 //MARK: - TableView
