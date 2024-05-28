@@ -81,7 +81,7 @@ class SurveyResultsViewController: UIViewController {
         return Double(totalAge) / Double(ages.count)
     }
     
-    private func calculateAverage(dates: [Date]) -> [Int] {
+    private func calculateAges(dates: [Date]) -> [Int] {
         let calendar = Calendar.current
         let currentDate = Date()
         
@@ -95,7 +95,7 @@ class SurveyResultsViewController: UIViewController {
     
     private func calculateAverageAge() -> String {
         let birthDates = fetchBirthDates()
-        let ages = calculateAverage(dates: birthDates)
+        let ages = calculateAges(dates: birthDates)
         let average = ageAverage(ages: ages)
         
         return String(average)
