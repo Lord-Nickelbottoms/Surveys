@@ -43,6 +43,7 @@ class SurveyResultsViewController: UIViewController {
             
             likesPizza.text = "%\(pizzaPercentage())"
             likesPasta.text = "%\(pastaPercentage())"
+            likesPapAndWors.text = "%\(papAndWorsPercentage())"
         }
     }
     
@@ -153,6 +154,19 @@ class SurveyResultsViewController: UIViewController {
         }
         
         let percentage = (Double(pastaLikeAmount) / Double(surveyItems.count)) * 100
+        return String(format: "%.1f", percentage)
+    }
+    
+    private func papAndWorsPercentage() -> String {
+        var papAndWorsLikeAmount = 0
+        
+        for item in surveyItems {
+            if item.foodPreference == "Pap and Wors" {
+                papAndWorsLikeAmount += 1
+            }
+        }
+        
+        let percentage = (Double(papAndWorsLikeAmount) / Double(surveyItems.count)) * 100
         return String(format: "%.1f", percentage)
     }
 }
