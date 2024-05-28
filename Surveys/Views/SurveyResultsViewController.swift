@@ -11,6 +11,8 @@ import CoreData
 class SurveyResultsViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var items = [Survey]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +20,7 @@ class SurveyResultsViewController: UIViewController {
     
     private func getAllData() {
         do {
-            let items = try context.fetch(Survey.fetchRequest())
+            items = try context.fetch(Survey.fetchRequest())
         } catch {
             fatalError("Error fetching DB")
         }
