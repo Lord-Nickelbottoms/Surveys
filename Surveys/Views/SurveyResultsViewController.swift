@@ -76,7 +76,7 @@ class SurveyResultsViewController: UIViewController {
         return String(surveyItems.count)
     }
     
-    // Age calculations
+//MARK: - Age Calculations
     private var ageAverage: String {
         let averageAge = calculateAverageAge()
         return String(averageAge)
@@ -130,6 +130,8 @@ class SurveyResultsViewController: UIViewController {
         
         return String(average)
     }
+    
+//MARK: - Food Preferences
     
     private func pizzaPercentage() -> String {
         var pizzaLikeAmount = 0
