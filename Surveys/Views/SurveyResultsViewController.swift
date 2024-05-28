@@ -47,6 +47,7 @@ class SurveyResultsViewController: UIViewController {
             
             likesMovies.text = "Avg: \(String(format: "%.1f", movieLikeAverage())) (\(movieLikePercentage)%)"
             likesRadio.text = "Avg: \(String(format: "%.1f", radioLikeAverage())) (\(radioLikePercentage)%)"
+            likesEatOut.text = "Avg: \(String(format: "%.1f", eatOutLikeAverage())) (\(eatOutLikePercentage)%)"
         }
     }
     
@@ -221,5 +222,28 @@ class SurveyResultsViewController: UIViewController {
     
     private var radioLikePercentage: String {
         return String(format: "%.1f", radioLikeAverage() * 100)
+    }
+    
+    private func eatOutLikeAverage() -> Double {
+        var rating = 0
+        var amountOfRatings = 0
+        var strongAgree = 0
+        var agree = 0
+        
+        for item in surveyItems {
+            amountOfRatings = item.eatOut?.count ?? 0
+            if item.eatOut == "Strong Agree"  {
+                strongAgree += 1
+            } else if item.eatOut == "Agree" {
+                agree += 2
+            }
+        }
+        
+        rating = strongAgree + agree
+        return Double(rating) / Double(amountOfRatings)
+    }
+    
+    private var eatOutLikePercentage: String {
+        return String(format: "%.1f", eatOutLikeAverage() * 100)
     }
 }
