@@ -24,7 +24,7 @@ class SurveyResultsViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var items = [Survey]()
+    var surveyItems = [Survey]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class SurveyResultsViewController: UIViewController {
     
     private func getAllData() {
         do {
-            items = try context.fetch(Survey.fetchRequest())
+            surveyItems = try context.fetch(Survey.fetchRequest())
         } catch {
             fatalError("Error fetching DB")
         }
