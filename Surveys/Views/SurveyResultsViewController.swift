@@ -28,6 +28,7 @@ class SurveyResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAllData()
     }
     
     private func getAllData() {
