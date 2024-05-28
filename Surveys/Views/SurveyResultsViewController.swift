@@ -32,6 +32,8 @@ class SurveyResultsViewController: UIViewController {
         updateUI()
     }
     
+//MARK: - UI Update
+    
     private func updateUI() {
         DispatchQueue.main.async { [self] in
             numberOfSurveys.text = totalAmountOfSurveys
