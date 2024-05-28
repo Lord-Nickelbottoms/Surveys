@@ -166,7 +166,11 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func dateSelected(_ sender: UIDatePicker) {
         birthDate = sender.date
     }
-
+    
+    
+    @IBAction func viewResultsTapped(_ sender: UIBarButtonItem) {
+    }
+    
 //MARK: - TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

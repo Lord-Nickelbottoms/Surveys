@@ -6,16 +6,29 @@
 //
 
 import UIKit
+import CoreData
 
 class SurveyResultsViewController: UIViewController {
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
+    private func getAllData() {
+        do {
+            let items = try context.fetch(Survey.fetchRequest())
+        } catch {
+            fatalError("Error fetching DB")
+        }
+    }
+    
+    
+    @IBAction func returnTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -276,7 +276,11 @@
                                 </barButtonItems>
                             </barButtonItemGroup>
                         </centerItemGroups>
-                        <barButtonItem key="rightBarButtonItem" title="VIEW SURVEY RESULTS" id="2uU-3m-fNL"/>
+                        <barButtonItem key="rightBarButtonItem" title="VIEW SURVEY RESULTS" id="2uU-3m-fNL">
+                            <connections>
+                                <action selector="viewResultsTapped:" destination="BYZ-38-t0r" id="RFk-Lk-57P"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="birthDatePicker" destination="Y3e-Df-Y9I" id="rI8-NP-jQw"/>
@@ -295,11 +299,22 @@
                         <outlet property="pastaCheckbox" destination="e2l-60-VRj" id="W6l-Ou-jKL"/>
                         <outlet property="pizzaCheckbox" destination="WJa-cA-hxJ" id="UmT-RY-TiB"/>
                         <outlet property="tableView" destination="O5I-k4-Wf8" id="ZAY-DQ-6Fg"/>
+                        <segue destination="1Oo-eX-8qG" kind="show" identifier="toResults" id="gyn-M4-ewh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1651.3081395348836" y="-2.3255813953488373"/>
+        </scene>
+        <!--SurveyResults-->
+        <scene sceneID="tb3-o6-nNI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SurveyResults" id="1Oo-eX-8qG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="VUu-XI-plA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pRW-C4-8cB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2072" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NFh-7x-Riu">
