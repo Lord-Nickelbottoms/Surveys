@@ -48,6 +48,7 @@ class SurveyResultsViewController: UIViewController {
             likesMovies.text = "Avg: \(String(format: "%.1f", movieLikeAverage())) (\(movieLikePercentage)%)"
             likesRadio.text = "Avg: \(String(format: "%.1f", radioLikeAverage())) (\(radioLikePercentage)%)"
             likesEatOut.text = "Avg: \(String(format: "%.1f", eatOutLikeAverage())) (\(eatOutLikePercentage)%)"
+            likesTelevision.text = "Avg: \(String(format: "%.1f", televisionLikeAverage())) (\(televisionLikePercentage)%)"
         }
     }
     
