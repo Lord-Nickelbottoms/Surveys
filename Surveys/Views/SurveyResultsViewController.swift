@@ -38,6 +38,8 @@ class SurveyResultsViewController: UIViewController {
             averageAgeLabel.text = "\(calculateAverageAge()) years old."
             oldestPerson.text = "\(calculateOldestAge()) years old."
             youngestPerson.text = "\(calculateYoungestAge()) years old."
+            
+            likesPizza.text = "%\(pizzaPercentage())"
         }
     }
     
@@ -123,5 +125,18 @@ class SurveyResultsViewController: UIViewController {
         let average = ageAverage(ages: ages)
         
         return String(average)
+    }
+    
+    private func pizzaPercentage() -> String {
+        var pizzaLikeAmount = 0
+        
+        for item in surveyItems {
+            if item.foodPreference == "Pizza" {
+                pizzaLikeAmount += 1
+            }
+        }
+        
+        let percentage = (Double(pizzaLikeAmount) / Double(surveyItems.count)) * 100
+        return String(format: "%.1f", percentage)
     }
 }
