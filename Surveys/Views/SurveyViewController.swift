@@ -188,6 +188,23 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.surveyData = {[weak self] data in
             for (key, value) in data {
                 self?.dictionary[key] = value
+                
+                switch key {
+                    case "I like to watch movies":
+                        self?.movie = value
+                        
+                    case "I like to listen to radio":
+                        self?.radio = value
+                        
+                    case "I like to eat out":
+                        self?.eat = value
+                        
+                    case "I like to watch TV":
+                        self?.television = value
+                        
+                    default:
+                        break
+                }
             }
         }
         return cell
