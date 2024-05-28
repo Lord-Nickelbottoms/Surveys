@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="Ll7-Cb-lqb">
-                                        <barButtonItem key="leftBarButtonItem" title="Return" id="rkT-xL-Tnd">
+                                        <barButtonItem key="leftBarButtonItem" title="FILL OUT SURVEY" id="rkT-xL-Tnd">
                                             <connections>
                                                 <action selector="returnTapped:" destination="Y6W-OH-hqX" id="M1j-mQ-NAd"/>
                                             </connections>
