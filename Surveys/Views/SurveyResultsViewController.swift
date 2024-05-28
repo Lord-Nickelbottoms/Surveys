@@ -70,6 +70,7 @@ class SurveyResultsViewController: UIViewController {
         return String(surveyItems.count)
     }
     
+    // Age calculations
     private var ageAverage: String {
         let averageAge = calculateAverageAge()
         return String(averageAge)
