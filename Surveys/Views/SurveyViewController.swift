@@ -158,7 +158,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             contactNumber = contactTextField.text ?? ""
             birthDate = formatDate(dateToFormat: birthDatePicker.date)
             
-            createUserSurvey(name: fullName, email: email, dateOfBirth: birthDate, contactNumber: contactNumber, foodPreference: foodPreference, likesMovies: dictionary["Movies"] ?? "", likesRadio: dictionary["Radio"] ?? "", likesEatOut: dictionary["Eat out"] ?? "", likesTelevision: dictionary["TV"] ?? "")
+            createUserSurvey(name: fullName, email: email, dateOfBirth: birthDate, contactNumber: contactNumber, foodPreference: foodPreference, likesMovies: movie, likesRadio: radio, likesEatOut: eat, likesTelevision: television)
             
             let alert = UIAlertController(title: "Success", message: "Information has been saved", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cool", style: .default))
