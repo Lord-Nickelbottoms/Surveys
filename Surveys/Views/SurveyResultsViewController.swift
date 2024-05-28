@@ -40,6 +40,7 @@ class SurveyResultsViewController: UIViewController {
             youngestPerson.text = "\(calculateYoungestAge()) years old."
             
             likesPizza.text = "%\(pizzaPercentage())"
+            likesPasta.text = "%\(pastaPercentage())"
         }
     }
     
@@ -137,6 +138,19 @@ class SurveyResultsViewController: UIViewController {
         }
         
         let percentage = (Double(pizzaLikeAmount) / Double(surveyItems.count)) * 100
+        return String(format: "%.1f", percentage)
+    }
+    
+    private func pastaPercentage() -> String {
+        var pastaLikeAmount = 0
+        
+        for item in surveyItems {
+            if item.foodPreference == "Pasta" {
+                pastaLikeAmount += 1
+            }
+        }
+        
+        let percentage = (Double(pastaLikeAmount) / Double(surveyItems.count)) * 100
         return String(format: "%.1f", percentage)
     }
 }
