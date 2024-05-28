@@ -29,6 +29,7 @@ class SurveyResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllData()
+        updateUI()
     }
     
     private func getAllData() {
@@ -39,11 +40,19 @@ class SurveyResultsViewController: UIViewController {
         }
     }
     
+    private func updateUI() {
+        DispatchQueue.main.async { [self] in
+            numberOfSurveys.text = totalAmountOfSurveys
+        }
+    }
+    
     
     @IBAction func returnTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     
-    
+    private var totalAmountOfSurveys: String {
+        return String(surveyItems.count)
+    }
 
 }
