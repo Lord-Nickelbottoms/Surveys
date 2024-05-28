@@ -36,6 +36,7 @@ class SurveyResultsViewController: UIViewController {
         DispatchQueue.main.async { [self] in
             numberOfSurveys.text = totalAmountOfSurveys
             averageAgeLabel.text = "\(calculateAverageAge()) years old."
+            oldestPerson.text = "\(calculateOldestAge()) years old."
         }
     }
     
@@ -73,7 +74,18 @@ class SurveyResultsViewController: UIViewController {
         return String(averageAge)
     }
     
-    // Age average
+    private func oldestAge(ages: [Int]) -> Int {
+        return ages.max() ?? 0
+    }
+    
+    private func calculateOldestAge() -> Int {
+        let birthDates = fetchBirthDates()
+        let ages = calculateAges(dates: birthDates)
+        let oldestAge = oldestAge(ages: ages)
+        return oldestAge
+    }
+    
+    // Age calculations
     private func ageAverage(ages: [Int]) -> Double {
         guard !ages.isEmpty else { return 0.0 }
         
