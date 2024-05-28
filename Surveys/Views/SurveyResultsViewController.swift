@@ -10,6 +10,18 @@ import CoreData
 
 class SurveyResultsViewController: UIViewController {
     
+    @IBOutlet var numberOfSurveys: UILabel!
+    @IBOutlet var averageAge: UILabel!
+    @IBOutlet var oldestPerson: UILabel!
+    @IBOutlet var youngestPerson: UILabel!
+    @IBOutlet var likesPizza: UILabel!
+    @IBOutlet var likesPasta: UILabel!
+    @IBOutlet var likesPapAndWors: UILabel!
+    @IBOutlet var likesMovies: UILabel!
+    @IBOutlet var likesRadio: UILabel!
+    @IBOutlet var likesEatOut: UILabel!
+    @IBOutlet var likesTelevision: UILabel!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var items = [Survey]()
