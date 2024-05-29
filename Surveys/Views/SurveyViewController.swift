@@ -196,7 +196,11 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func viewResultsTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "toResults", sender: self)
+        if models.count == 0 {
+            performSegue(withIdentifier: "toEmptyVC", sender: self)
+        } else {
+            performSegue(withIdentifier: "toResults", sender: self)
+        }
     }
     
 //MARK: - TableView
