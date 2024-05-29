@@ -19,6 +19,8 @@
 		70B6D63C2C05506500ABE15F /* SurveyResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B6D63B2C05506500ABE15F /* SurveyResultsViewController.swift */; };
 		70C7D8082C050D5A00E47A68 /* Survey+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7D8062C050D5A00E47A68 /* Survey+CoreDataClass.swift */; };
 		70C7D8092C050D5A00E47A68 /* Survey+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7D8072C050D5A00E47A68 /* Survey+CoreDataProperties.swift */; };
+		70DDC9832C06F4500063B0D3 /* EmptySurvey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70DDC9822C06F4500063B0D3 /* EmptySurvey.storyboard */; };
+		70DDC9852C06F4630063B0D3 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DDC9842C06F4630063B0D3 /* EmptyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		70B6D63B2C05506500ABE15F /* SurveyResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResultsViewController.swift; sourceTree = "<group>"; };
 		70C7D8062C050D5A00E47A68 /* Survey+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+CoreDataClass.swift"; sourceTree = "<group>"; };
 		70C7D8072C050D5A00E47A68 /* Survey+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		70DDC9822C06F4500063B0D3 /* EmptySurvey.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptySurvey.storyboard; sourceTree = "<group>"; };
+		70DDC9842C06F4630063B0D3 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			children = (
 				70B6D63E2C0550A200ABE15F /* UI */,
 				706EDF762BFF7F9A005294BD /* SurveyViewController.swift */,
+				70DDC9842C06F4630063B0D3 /* EmptyViewController.swift */,
 				70B6D63B2C05506500ABE15F /* SurveyResultsViewController.swift */,
 			);
 			path = Views;
@@ -104,6 +109,7 @@
 				70B6D6392C05504400ABE15F /* SurveyResults.storyboard */,
 				706EDF782BFF7F9A005294BD /* Main.storyboard */,
 				706EDF802BFF7F9D005294BD /* LaunchScreen.storyboard */,
+				70DDC9822C06F4500063B0D3 /* EmptySurvey.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -178,6 +184,7 @@
 				706EDF7F2BFF7F9D005294BD /* Assets.xcassets in Resources */,
 				706EDF822BFF7F9D005294BD /* Base in Resources */,
 				706EDF7A2BFF7F9A005294BD /* Base in Resources */,
+				70DDC9832C06F4500063B0D3 /* EmptySurvey.storyboard in Resources */,
 				70B6D63A2C05504400ABE15F /* SurveyResults.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +202,7 @@
 				706EDF772BFF7F9A005294BD /* SurveyViewController.swift in Sources */,
 				706EDF7D2BFF7F9A005294BD /* Surveys.xcdatamodeld in Sources */,
 				70010D1B2C00C927007A4A45 /* CustomTableViewCell.swift in Sources */,
+				70DDC9852C06F4630063B0D3 /* EmptyViewController.swift in Sources */,
 				706EDF732BFF7F9A005294BD /* AppDelegate.swift in Sources */,
 				706EDF752BFF7F9A005294BD /* SceneDelegate.swift in Sources */,
 			);
