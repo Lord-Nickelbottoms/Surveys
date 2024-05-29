@@ -254,8 +254,4 @@ class SurveyResultsViewController: UIViewController {
         rating = strongAgree + agree
         return Double(rating) / Double(amountOfRatings)
     }
-    
-    private var televisionLikePercentage: String {
-        return String(format: "%.1f", televisionLikeAverage() * 100)
-    }
 }
