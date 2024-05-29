@@ -19,6 +19,16 @@ class CustomTableViewCell: UITableViewCell {
     var surveyData: (([String: String]) -> Void)?
     var dictionary = [String: String]()
     
+    var resetCells: Bool = false {
+        didSet {
+            strongAgree.isSelected = false
+            agree.isSelected = false
+            neutral.isSelected = false
+            disagree.isSelected = false
+            strongDisagree.isSelected = false
+        }
+    }
+    
     func setupCell(_ surveyText: String) {
         self.surveyText.text = surveyText
         self.strongAgree.addTarget(self, action: #selector(radioButtonSelection(_:)), for: .touchUpInside)
