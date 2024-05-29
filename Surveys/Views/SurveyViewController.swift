@@ -172,7 +172,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //MARK: - IBActions
     
     @IBAction func submitData(_ sender: UIButton) {
-        if fullNameTextField.text == "", emailTextField.text == "", contactTextField.text == "", dictionary.values.contains(where: { $0 == "" }), fullName == "", email == "", birthDate == nil, contactNumber == "" {
+        if fullNameTextField.text == "" && emailTextField.text == "" && contactTextField.text == "" && fullName == "", email == "" && contactNumber == "" {
             let alert = UIAlertController(title: "Error!", message: "Personal details cannot be empty.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true)
