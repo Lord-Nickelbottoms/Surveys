@@ -198,10 +198,6 @@ class SurveyResultsViewController: UIViewController {
         return Double(rating) / Double(amountOfRatings)
     }
     
-    private var movieLikePercentage: String {
-        return String(format: "%.1f", movieLikeAverage() * 100)
-    }
-    
     private func radioLikeAverage() -> Double {
         var rating = 0
         var amountOfRatings = 0
