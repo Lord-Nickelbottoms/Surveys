@@ -246,7 +246,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         if resetState {
-            cell.resetCells = true
+            cell.resetCells()
         }
         return cell
     }
