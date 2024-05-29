@@ -300,6 +300,7 @@
                         <outlet property="pizzaCheckbox" destination="WJa-cA-hxJ" id="UmT-RY-TiB"/>
                         <outlet property="tableView" destination="O5I-k4-Wf8" id="ZAY-DQ-6Fg"/>
                         <segue destination="1Oo-eX-8qG" kind="show" identifier="toResults" id="gyn-M4-ewh"/>
+                        <segue destination="NbT-eG-8Rb" kind="show" identifier="toEmptyVC" id="vvf-6j-D2U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -314,7 +315,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRW-C4-8cB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2072" y="-2"/>
+            <point key="canvasLocation" x="2057" y="-156"/>
+        </scene>
+        <!--EmptySurvey-->
+        <scene sceneID="cZS-iy-b1v">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EmptySurvey" id="NbT-eG-8Rb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2Se-3X-YdF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RGm-71-rya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2058" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NFh-7x-Riu">
