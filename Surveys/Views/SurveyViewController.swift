@@ -57,6 +57,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         resetState = false
+        birthDate = birthDatePicker.date
         
         label1.layer.borderWidth = 1.0
         label2.layer.borderWidth = 1.0
@@ -125,6 +126,14 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         papAndWorsCheckbox.isSelected = false
         otherCheckbox.isSelected = false
         
+        fullName = ""
+        email = ""
+        contactNumber = ""
+        foodPreference = ""
+        movie = ""
+        radio = ""
+        eat = ""
+        television = ""
         resetState = true
     }
     
@@ -163,7 +172,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //MARK: - IBActions
     
     @IBAction func submitData(_ sender: UIButton) {
-        if fullNameTextField.text == "", emailTextField.text == "", contactTextField.text == "", dictionary.values.contains(where: { $0 == "" }) {
+        if fullNameTextField.text == "", emailTextField.text == "", contactTextField.text == "", dictionary.values.contains(where: { $0 == "" }), fullName == "", email == "", birthDate == nil, contactNumber == "" {
             let alert = UIAlertController(title: "Error!", message: "Personal details cannot be empty.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true)
