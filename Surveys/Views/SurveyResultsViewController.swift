@@ -45,10 +45,10 @@ class SurveyResultsViewController: UIViewController {
             likesPasta.text = "%\(pastaPercentage())"
             likesPapAndWors.text = "%\(papAndWorsPercentage())"
             
-            likesMovies.text = "Avg: \(String(format: "%.1f", movieLikeAverage()))"
-            likesRadio.text = "Avg: \(String(format: "%.1f", radioLikeAverage()))"
-            likesEatOut.text = "Avg: \(String(format: "%.1f", eatOutLikeAverage()))"
-            likesTelevision.text = "Avg: \(String(format: "%.1f", televisionLikeAverage()))"
+            likesMovies.text = "\(String(format: "%.1f", movieLikeAverage()))"
+            likesRadio.text = "\(String(format: "%.1f", radioLikeAverage()))"
+            likesEatOut.text = "\(String(format: "%.1f", eatOutLikeAverage()))"
+            likesTelevision.text = "\(String(format: "%.1f", televisionLikeAverage()))"
         }
     }
     
