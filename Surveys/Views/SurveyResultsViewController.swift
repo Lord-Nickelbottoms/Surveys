@@ -236,10 +236,6 @@ class SurveyResultsViewController: UIViewController {
         return Double(rating) / Double(amountOfRatings)
     }
     
-    private var eatOutLikePercentage: String {
-        return String(format: "%.1f", eatOutLikeAverage() * 100)
-    }
-    
     private func televisionLikeAverage() -> Double {
         var rating = 0
         var amountOfRatings = 0
