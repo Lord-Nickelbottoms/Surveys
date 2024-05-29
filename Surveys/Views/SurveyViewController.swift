@@ -167,6 +167,14 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let alert = UIAlertController(title: "Error!", message: "Personal details cannot be empty.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true)
+        } else if foodPreference == "" {
+            let alert = UIAlertController(title: "Error!", message: "Please select your favourite food.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true)
+        } else if movie == "", radio == "", eat == "", television == "" {
+            let alert = UIAlertController(title: "Error!", message: "Please select a rating.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true)
         } else {
             fullName = fullNameTextField.text ?? ""
             email = emailTextField.text ?? ""
