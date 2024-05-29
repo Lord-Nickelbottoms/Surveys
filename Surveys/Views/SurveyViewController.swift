@@ -44,16 +44,19 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
     
     private var dictionary = ["Movies" : "", "Radio" : "", "Eat out" : "", "TV" : ""]
-    var movie = ""
-    var radio = ""
-    var eat = ""
-    var television = ""
+    private var movie = ""
+    private var radio = ""
+    private var eat = ""
+    private var television = ""
     private var models = [Survey]()
+    
+    var resetState = false
     
 //MARK: - Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetState = false
         
         label1.layer.borderWidth = 1.0
         label2.layer.borderWidth = 1.0
@@ -113,6 +116,18 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return calender.date(from: components)!
     }
     
+    private func resetScreen() {
+        fullNameTextField.text = ""
+        emailTextField.text = ""
+        contactTextField.text = ""
+        pizzaCheckbox.isSelected = false
+        pastaCheckbox.isSelected = false
+        papAndWorsCheckbox.isSelected = false
+        otherCheckbox.isSelected = false
+        
+        resetState = true
+    }
+    
     @objc func checkboxSelection(_ sender: UIButton) {
         pizzaCheckbox.isSelected = false
         pastaCheckbox.isSelected = false
@@ -163,6 +178,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let alert = UIAlertController(title: "Success", message: "Information has been saved", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cool", style: .default))
             self.present(alert, animated: true)
+            resetScreen()
         }
     }
     
@@ -206,6 +222,10 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         break
                 }
             }
+        }
+        
+        if resetState {
+            cell.resetCells = true
         }
         return cell
     }
