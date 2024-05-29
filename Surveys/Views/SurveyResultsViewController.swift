@@ -217,10 +217,6 @@ class SurveyResultsViewController: UIViewController {
         return Double(rating) / Double(amountOfRatings)
     }
     
-    private var radioLikePercentage: String {
-        return String(format: "%.1f", radioLikeAverage() * 100)
-    }
-    
     private func eatOutLikeAverage() -> Double {
         var rating = 0
         var amountOfRatings = 0
