@@ -43,8 +43,11 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private var contactNumber = ""
     private var surveyQuestions = ["I like to watch movies", "I like to listen to radio", "I like to eat out", "I like to watch TV"]
     
-    var dictionary = ["Movies" : "", "Radio" : "", "Eat out" : "", "TV" : ""]
-    
+    private var dictionary = ["Movies" : "", "Radio" : "", "Eat out" : "", "TV" : ""]
+    var movie = ""
+    var radio = ""
+    var eat = ""
+    var television = ""
     private var models = [Survey]()
     
 //MARK: - Functions
@@ -155,7 +158,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             contactNumber = contactTextField.text ?? ""
             birthDate = formatDate(dateToFormat: birthDatePicker.date)
             
-            createUserSurvey(name: fullName, email: email, dateOfBirth: birthDate, contactNumber: contactNumber, foodPreference: foodPreference, likesMovies: dictionary["Movies"] ?? "", likesRadio: dictionary["Radio"] ?? "", likesEatOut: dictionary["Eat out"] ?? "", likesTelevision: dictionary["TV"] ?? "")
+            createUserSurvey(name: fullName, email: email, dateOfBirth: birthDate, contactNumber: contactNumber, foodPreference: foodPreference, likesMovies: movie, likesRadio: radio, likesEatOut: eat, likesTelevision: television)
             
             let alert = UIAlertController(title: "Success", message: "Information has been saved", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cool", style: .default))
@@ -169,6 +172,7 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func viewResultsTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "toResults", sender: self)
     }
     
 //MARK: - TableView
@@ -178,12 +182,29 @@ class SurveyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else{ return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         cell.setupCell(surveyQuestions[indexPath.row])
         
         cell.surveyData = {[weak self] data in
             for (key, value) in data {
                 self?.dictionary[key] = value
+                
+                switch key {
+                    case "I like to watch movies":
+                        self?.movie = value
+                        
+                    case "I like to listen to radio":
+                        self?.radio = value
+                        
+                    case "I like to eat out":
+                        self?.eat = value
+                        
+                    case "I like to watch TV":
+                        self?.television = value
+                        
+                    default:
+                        break
+                }
             }
         }
         return cell
